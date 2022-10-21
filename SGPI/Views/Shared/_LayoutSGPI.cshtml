@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+</head>
+<body>
+     @RenderBody()
+    <footer class="bg-dark" style="position: absolute; bottom: 0; width: 100%; height: auto; color: white; text-align: center">
+        <p>Sistema de gestión de Posgrados Ingeniería @DateTime.Today.Year</p>
+        <a href="/Administrador/CrearUsuario">Administrador</a> - <a href="/Coordinador/Buscar">Coordinador  </a> - <a href="/Estudiante/ActualizarUsuario">Estudiante </a>
+    </footer>
+</body>
+</html>

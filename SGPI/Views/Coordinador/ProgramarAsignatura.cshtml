@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewData["Title"] = "Programar asignatura";
+    Layout = "NavbarCoordinadorLayout";
+}
+
+<div class="bg-black" style="width:100%; padding-top:5%; padding-left:10%; padding-right:10%">
+
+    <div class="card card-login mx-auto text-center bg-light">
+        <div class="card-header mx-auto bg-light">
+            <span class="mt-5 font-weight-bold"> Programar asignatura </span>
+        </div>
+
+        <div class="card-body">
+            <form action="" method="post">
+                <div class="row input-group form-group">
+                    <div class="input-group-prepend">
+                        <span class="col input-group-text"><i class="fa fa-hashtag"></i></span>
+                    </div>
+                    <input type="text" id="txtPeriodo" class="form-control" placeholder="Periodo academico">
+                    <div class="col"> </div>
+                    <div class="col"> </div>
+                </div>
+                <div class="row border font-weight-bold">
+                    <div class="col border">Fecha</div>
+                    <div class="col border">Sala o aula</div>
+                    <div class="col border">Asignatura</div>
+                    <div class="col border">Codigo asignatura</div>
+                    <div class="col border">Opción</div>
+                </div>
+                <div class="row border">
+                    <div class="col">
+                        <input type="date" id="txtFecha" class="form-control" placeholder="Fecha">
+                    </div>
+                    <div class="col border"> 
+                        <input type="text" id="txtAula" class="form-control" placeholder="Aula">
+                    </div>
+                    <div class="col border">
+                        <input type="text" id="txtAsignatura" class="form-control" placeholder="Asignatura">
+                    </div>
+                    <div class="col border">
+                        <input type="text" id="txtAsignaturaCodigo" class="form-control" placeholder="Codigo asignatura">
+                    </div>
+                    <div class="col border">
+                        <div class="input-group-prepend form-group">
+                            <span class="col input-group-text"><i class="fa fa-user-plus"></i></span>
+                            <input type="button" id="txtAsignatura" class="form-control btn btn-secondary" value="Cargar">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

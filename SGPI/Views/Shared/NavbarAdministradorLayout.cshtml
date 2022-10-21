@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/Administrador/BuscarUsuario">Administrador</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a id="crearUsuario" class="nav-link" href="/Administrador/CrearUsuario">Crear Usuario</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="buscarUsuario" class="nav-link" href="/Administrador/BuscarUsuario">Buscar Usuario</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="eliminarUsuario" class="nav-link" href="/Administrador/EliminarUsuario">Eliminar Usuario</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="editarUsuario" class="nav-link" href="/Administrador/EditarUsuario">Editar Usuario</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="reportes" class="nav-link" href="/Administrador/Reportes">Reportes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="reportes" class="nav-link">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="reportes" class="nav-link" href="/Administrador/Login">Cerrar sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    @RenderBody()
+    <footer class="bg-dark" style="position: absolute; bottom: 0; width: 100%; height: auto; color: white; text-align: center">
+        <p>Sistema de gestión de Posgrados Ingeniería @DateTime.Today.Year</p>
+        <a href="/Administrador/CrearUsuario">Administrador</a> - <a href="/Coordinador/Buscar">Coordinador  </a> - <a href="/Estudiante/ActualizarUsuario">Estudiante </a>
+    </footer>
+</body>
+</html>

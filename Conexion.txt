@@ -1,0 +1,19 @@
+ 
+En consola
+Scaffold-DbContext "Server=(localdb)\MSSQLLocalDB;Database=SGPI;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+
+En Json
+"ConnectionStrings":{
+
+    "DefaultConnectionString":"Server=(localdb)\MSSQLLocalDB;Database=SGPI;Trusted_Connection=True;MultipleActiveResultSets=true;"
+
+  },
+
+En program.cs
+builder.Services.AddDbContext<nombre_context>(options =>
+
+{
+
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString"));
+
+});

@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewData["Title"] = "Iniciar sesión";
+    Layout = "_LayoutSGPI";
+}
+
+
+<div class="container" style="width:100%; padding-top:5%; padding-left:10%; padding-right:10%">
+
+    <div class="card card-login mx-auto text-center bg-light">
+        <div class="card-header mx-auto bg-light">
+            <span class="font-weight-bold mt-5"> Login </span>
+        </div>
+        <div class="card-body">
+            <form action="" method="post">
+                <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    </div>
+                    <input type="text" id="txtUsuario" class="form-control" placeholder="Usuario">
+                </div>
+
+                <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                    </div>
+                    <input type="password" id="txtContrasena" class="form-control" placeholder="Contraseña">
+                </div>
+                <div class="input-group form-group justify-content-center">
+                    <input type="button" class="btn btn-success float-right login_btn w-25" value="Ingresar">
+                </div>
+                <div class="form-group">
+                    <a href="/Administrador/OlvidarContrasena" id="recuperarPassword">¿Olvidaste la contraseña?</a>
+                    
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

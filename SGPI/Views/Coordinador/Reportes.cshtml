@@ -1,0 +1,84 @@
+﻿
+@{
+    ViewData["Title"] = "Reportes";
+    Layout = "NavbarCoordinadorLayout";
+}
+
+<div class="bg-black" style="width:100%; padding-top:5%; padding-left:10%; padding-right:10%">
+
+    <div class="card card-login mx-auto text-center bg-light">
+        <div class="card-header mx-auto bg-light">
+            <span class="mt-5 font-weight-bold"> Reportes </span>
+        </div>
+
+        <div class="card-body">
+            <form action="" method="post">
+                <div class="row">
+                    <div class="col input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-address-card" aria-hidden="true"></i></span>
+                        </div>
+                        <select class="form-control" name="select">
+                            <option value="null" selected>Tipo de documento</option>
+                            <option value="cedula">Cedula</option>
+                            <option value="identidad">Tarjeta de identidad</option>
+                            <option value="nit">NIT</option>
+                            <option value="pasaporte">Pasaporte</option>
+                        </select>
+                    </div>
+                    <div class="col input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-hashtag"></i></span>
+                        </div>
+                        <input type="text" id="txtDocumento" class="form-control w-25" placeholder="Número de documento">
+                    </div>
+                    <div class="col">
+                        <input type="button" value="Generar reporte" class="btn-success form-control" />
+                    </div>
+                </div>
+                <div class="row border font-weight-bold">
+                    <div class="col border">Nombre</div>
+                    <div class="col border">Primer Apellido</div>
+                    <div class="col border">Segundo Apellido</div>
+                    <div class="col border">Genero</div>
+                    <div class="col border">Documento</div>
+                    <div class="col border">Programa</div>
+                    <div class="col border">Rol</div>
+                    <div class="col border">Correo</div>
+                </div>
+                <div class="row border">
+                    <div class="col border"> <br /></div>
+                    <div class="col border"> </div>
+                    <div class="col border"> </div>
+                    <div class="col border"> </div>
+                    <div class="col border"> </div>
+                    <div class="col border"> </div>
+                    <div class="col border"> </div>
+                    <div class="col border"> </div>
+                </div>
+                <div class="row border">
+                    <div class="col border"> <br /></div>
+                    <div class="col border"> </div>
+                    <div class="col border"> </div>
+                    <div class="col border"> </div>
+                    <div class="col border"> </div>
+                    <div class="col border"> </div>
+                    <div class="col border"> </div>
+                    <div class="col border"> </div>
+                </div>
+                <div class="row border">
+                    <div class="col border"> <br /></div>
+                    <div class="col border"> </div>
+                    <div class="col border"> </div>
+                    <div class="col border"> </div>
+                    <div class="col border"> </div>
+                    <div class="col border"> </div>
+                    <div class="col border"> </div>
+                    <div class="col border"> </div>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+</div>
