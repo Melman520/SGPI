@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using SGPI.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -25,3 +28,9 @@ app.MapControllerRoute(
     pattern: "{controller=Administrador}/{action=Login}/{id?}");
 
 app.Run();
+
+builder.Services.AddDbContext<SGPIContext>(options =>
+
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString"));
+});

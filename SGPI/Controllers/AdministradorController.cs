@@ -1,11 +1,40 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SGPI.Models;
 
 namespace SGPI.Controllers
 {
     public class AdministradorController : Controller
     {
+        SGPIContext context = new SGPIContext();
+
         public IActionResult Login()
         {
+            //Create
+            TblUsuario usr = new TblUsuario();
+            usr.PrimerNombre = "Mauricio";
+            usr.SegundoNombre = string.Empty;
+            usr.PrimerApellido = "Amariles";
+            usr.SegundoApellido = "Camacho";
+            usr.Email = "mauricio.amariles@tdea.edu.co";
+            usr.Iddoc = 1;
+            usr.Idgenero = 1;
+            usr.Idrol = 1;
+            usr.Idprograma = 102735;
+            usr.NumeroDocumento = "123456789";
+            usr.Clave = "123456789";
+            context.Add(usr);
+            context.SaveChanges();
+            
+            //Buscar
+            TblUsuario usuario = new TblUsuario();
+            usuario = context.TblUsuarios
+                .Single(b => b.NumeroDocumento == "123456789");
+
+
+            //Listar usuarios
+            List<TblUsuario> usuarios = new List<TblUsuario>();
+            usuarios = context.TblUsuarios.ToList();
+
             return View();
         }
 

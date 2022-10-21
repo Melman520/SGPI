@@ -2,27 +2,27 @@ create database SGPI
 go
 use SGPI
 go
-create table documento(
+create table tblDocumento(
 IDDoc int primary key identity(1,1),
 TipoDocumento varchar(30)
 )
 go
-create table genero(
+create table tblGenero(
 IDGenero int primary key identity(1,1),
 Genero varchar(30)
 )
 go
-create table rol(
+create table tblRol(
 IDRol int primary key identity(1,1),
 Rol varchar(50)
 )
 go
-create table programa(
+create table tblPrograma(
 IDPrograma int primary key,
 Programa varchar(100)
 )
 go
-create table usuario(
+create table tblUsuario(
 IDUsuario int primary key identity(1,1),
 numeroDocumento varchar(30),
 IDDoc int,
@@ -35,54 +35,54 @@ Email varchar (255),
 IDRol int,
 Clave varchar(255),
 IDPrograma int,
-foreign key (IDGenero) references genero(IDGenero),
-foreign key (IDRol) references rol(IDRol),
-foreign key (IDPrograma) references programa(IDPrograma),
-foreign key (IDDoc) references documento(IDDoc)
+foreign key (IDGenero) references tblGenero(IDGenero),
+foreign key (IDRol) references tblRol(IDRol),
+foreign key (IDPrograma) references tblPrograma(IDPrograma),
+foreign key (IDDoc) references tblDocumento(IDDoc)
 )
 go
-create table pagos(
+create table tblPagos(
 IDPago int primary key identity(1,1),
 ValorPago int,
 Fecha date,
 Estado bit
 )
 go
-create table estudiante(
+create table tblEstudiante(
 IDEstudiante int primary key identity(1,1),
 Archivo varchar(500),
 IDPago int,
 IDUsuario int,
 Egresado bit,
-foreign key (IDUsuario) references usuario(IDUsuario),
-foreign key (IDPago) references pagos(IDPago)
+foreign key (IDUsuario) references tblUsuario(IDUsuario),
+foreign key (IDPago) references tblPagos(IDPago)
 )
 go
-create table entrevista(
+create table tblEntrevista(
 IDEntrevista int primary key identity(1,1),
 IDUsuario int,
 IDEstudiante int,
 fecha date,
-foreign key (IDUsuario) references usuario(IDUsuario),
-foreign key (IDEstudiante) references estudiante (IDEstudiante)
+foreign key (IDUsuario) references tblUsuario(IDUsuario),
+foreign key (IDEstudiante) references tblEstudiante (IDEstudiante)
 )
 go
-create table tipoHomologacion(
+create table tblTipoHomologacion(
 IDTipoHomologacion int primary key identity(1,1),
 TipoHomologacion varchar(100)
 )
 go
-create table Asignatura(
+create table tblAsignatura(
 IDAsignatura int primary key identity(1,1),
 Nombre varchar (30),
 Codigo varchar (150),
 IDPrograma int,
 Nivel int,
 Creditos int,
-foreign key (IDPrograma) references programa (IDPrograma)
+foreign key (IDPrograma) references tblPrograma (IDPrograma)
 )
 go
-create table Programacion(
+create table tblProgramacion(
 IDProgramacion int primary key identity(1,1),
 PeriodoAcademico varchar(30),
 IDPrograma int,
@@ -90,12 +90,12 @@ FechaProgramacion datetime,
 sala varchar (30),
 IDAsignatura int,
 IDUsuario  int,
-foreign key (IDPrograma) references programa(IDPrograma),
-foreign key (IDAsignatura) references asignatura(IDAsignatura),
-foreign key (IDUsuario) references usuario (IDUsuario)
+foreign key (IDPrograma) references tblPrograma(IDPrograma),
+foreign key (IDAsignatura) references tblAsignatura(IDAsignatura),
+foreign key (IDUsuario) references tblUsuario (IDUsuario)
 )
 go
-create table homologacion(
+create table tblHomologacion(
 IDHomologacion int primary key identity(1,1),
 IDEstudiante int,
 IDPrograma int,
@@ -106,16 +106,33 @@ CodigoHomologacion varchar(30),
 NomAsigHomologacion varchar(30),
 CreditosHomologacion int,
 nota float(53)
-foreign key (IDEstudiante) references estudiante(IDEstudiante),
-foreign key (IDPrograma) references programa(IDPrograma),
-foreign key (IDTipoHomologacion) references tipoHomologacion(IDTipoHomologacion),
-foreign key (IDAsignatura) references asignatura(IDAsignatura)
+foreign key (IDEstudiante) references tblEstudiante(IDEstudiante),
+foreign key (IDPrograma) references tblPrograma(IDPrograma),
+foreign key (IDTipoHomologacion) references tblTipoHomologacion(IDTipoHomologacion),
+foreign key (IDAsignatura) references tblAsignatura(IDAsignatura)
 )
 go
-insert into programa (IDPrograma, Programa) values (102735,'Especializacion seguridad de la informacion')
-insert into programa (IDPrograma, Programa) values (106409,'Maestría en Gestión del Riesgo y Medio Ambiente')
-insert into programa (IDPrograma, Programa) values (105966,'Maestría en Gestión de Tecnología de la Información')
+insert into tblPrograma (IDPrograma, Programa) values (102735,'Especializacion seguridad de la informacion')
+insert into tblPrograma (IDPrograma, Programa) values (106409,'Maestría en Gestión del Riesgo y Medio Ambiente')
+insert into tblPrograma (IDPrograma, Programa) values (105966,'Maestría en Gestión de Tecnología de la Información')
 
-insert into genero (Genero) values ('Masculino')
-insert into genero (Genero) values ('Femenino')
-insert into genero (Genero) values ('Otro')
+insert into tblGenero (Genero) values ('Masculino')
+insert into tblGenero (Genero) values ('Femenino')
+insert into tblGenero (Genero) values ('Otro')
+
+insert into tblDocumento values ('Cedula de Ciudadania')
+insert into tblDocumento values ('Cedula de Extranjeria')
+insert into tblDocumento values ('Tarjeta de Identidad')
+insert into tblDocumento values ('Nit')
+insert into tblDocumento values ('Pasaporte')
+
+insert into tblRol values ('Administrador')
+insert into tblRol values ('Coordinador')
+insert into tblRol values ('Estudiante')
+
+insert into tblPrograma values (105966,'Maestría en Gestión de Tecnología de la Información')
+insert into tblPrograma values (102735,'Especialización en Seguridad de la Información')
+insert into tblPrograma values (106409,'Maestría en Gestión del Riesgo y Medio Ambiente')
+
+/*Reiniciar identity de tblUsuario*/
+DBCC CHECKIDENT (tblUsuario, RESEED, 0)
