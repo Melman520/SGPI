@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SGPI.Models;
+using System.Drawing.Printing;
 
 namespace SGPI.Controllers
 {
@@ -9,6 +10,20 @@ namespace SGPI.Controllers
 
         public IActionResult Login()
         {
+            /*
+            TblPrograma prog = new TblPrograma();
+            prog.Idprograma = 12123;
+            prog.Programa = "Gestion TI";
+            context.Add(prog);
+            */
+
+            List<TblPrograma> programas = new List<TblPrograma>();
+            programas = context.TblProgramas.ToList();
+            foreach (var item in programas)
+            {
+                Console.WriteLine(item.Programa);
+            }
+
             //Create
             TblUsuario usr = new TblUsuario();
             usr.PrimerNombre = "Mauricio";
@@ -26,10 +41,11 @@ namespace SGPI.Controllers
             context.SaveChanges();
             
             //Buscar
+            /*
             TblUsuario usuario = new TblUsuario();
             usuario = context.TblUsuarios
                 .Single(b => b.NumeroDocumento == "123456789");
-
+            */
 
             //Listar usuarios
             List<TblUsuario> usuarios = new List<TblUsuario>();
