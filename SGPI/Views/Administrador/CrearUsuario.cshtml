@@ -12,15 +12,15 @@
         </div>
         
         <div class="card-body">
-            <form action="" method="post">
+            <form action="" method="get">
                 
                 <div class="row">
                     <div class="col input-group form-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa fa-address-card" aria-hidden="true"></i></span>
                         </div>
-                        <select class="form-control" name="select">
-                            <option value="null" selected>Tipo de documento</option>
+                        <select class="form-control" name="select" required>
+                            <option value="" selected disabled hidden>Tipo de documento</option>
                             <option value="cedula">Cedula</option>
                             <option value="identidad">Tarjeta de identidad</option>
                             <option value="nit">NIT</option>
@@ -31,14 +31,14 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa fa-hashtag"></i></span>
                         </div>
-                        <input type="text" id="txtDocumento" class="form-control w-25" placeholder="Número de documento">
+                        <input type="text" id="txtDocumento" class="form-control w-25" placeholder="Número de documento" required>
                     </div>
                     <div class="col input-group form-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa fa-intersex" aria-hidden="true"></i></span>
                         </div>
-                        <select name="genero" class="form-control">
-                            <option value="null" selected>Genero</option>
+                        <select name="genero" class="form-control" required>
+                            <option value="" selected disabled hidden>Genero</option>
                             <option value="masculino">Masculino</option>
                             <option value="femenino">Femenino</option>
                             <option value="otro">Otro</option>
@@ -48,31 +48,31 @@
 
                 <div class="row">
                     <div class="col input-group form-group">
-                        <input type="text" id="txtNombre" class="form-control w-25" placeholder="Nombre"> 
+                        <input type="text" id="txtNombre" class="form-control w-25" placeholder="Nombre" required>
                     </div>
                     <div class="col input-group form-group">
-                        <input type="text" id="txtApellidoA" class="form-control w-25" placeholder="Primer apellido"> 
+                        <input type="text" id="txtApellidoA" class="form-control w-25" placeholder="Primer apellido" required>
                     </div>
                     <div class="col input-group form-group">
-                        <input type="text" id="txtApellidoB" class="form-control w-25" placeholder="Segundo apellido"> 
+                        <input type="text" id="txtApellidoB" class="form-control w-25" placeholder="Segundo apellido" required> 
                     </div>
                 </div>
 
                 <div class="row form-group">
                     <div class="col form-group">
-                        <div class="input-group"><input type="email" id="txtEmail" class="form-control w-25" placeholder="Correo Electronico"> </div>
+                        <div class="input-group"><input type="email" id="txtEmail" class="form-control w-25" placeholder="Correo Electronico" required> </div>
                     </div>
                     <div class="col form-group">
-                        <select name="rol" class="form-control">
-                            <option value="null" selected>Rol</option>
+                        <select name="rol" class="form-control" required>
+                            <option value="" selected disabled hidden>Rol</option>
                             <option value="admin">Administrador</option>
                             <option value="coordinador">Coordinador</option>
                             <option value="estudiante">Estudiante</option>
                         </select>
                     </div>
                     <div class="col">
-                        <select name="programa" class="form-control">
-                            <option value="null" selected>Programa</option>
+                        <select name="programa" class="form-control" required>
+                            <option value="" selected disabled hidden>Programa</option>
                             <option value="maestira">Maestría en gestión TI</option>
                             <option value="especializacion">Especialización SI</option>
                             <option value="medio ambiente">Maestria en medio ambiente</option>
@@ -82,7 +82,7 @@
                 <div class="row">
                     <div class="col"></div>
                     <div class="col">
-                        <input type="button" value="Crear usuario" class="btn-success form-control" />
+                        <input type="submit" value="Crear usuario" class="btn-success form-control" />
                     </div>
                     <div class="col"></div>
                 </div>
