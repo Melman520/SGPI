@@ -17,15 +17,18 @@ namespace SGPI.Controllers
             context.Add(prog);
             */
 
+            /*
             List<TblPrograma> programas = new List<TblPrograma>();
             programas = context.TblProgramas.ToList();
             foreach (var item in programas)
             {
                 Console.WriteLine(item.Programa);
             }
+            */
 
             //Create
-            TblUsuario usr = new TblUsuario();
+            /*
+             * TblUsuario usr = new TblUsuario();
             usr.PrimerNombre = "Mauricio";
             usr.SegundoNombre = string.Empty;
             usr.PrimerApellido = "Amariles";
@@ -39,7 +42,8 @@ namespace SGPI.Controllers
             usr.Clave = "123456789";
             context.Add(usr);
             context.SaveChanges();
-            
+            */
+
             //Buscar
             /*
             TblUsuario usuario = new TblUsuario();
@@ -48,12 +52,55 @@ namespace SGPI.Controllers
             */
 
             //Listar usuarios
+            /*
             List<TblUsuario> usuarios = new List<TblUsuario>();
             usuarios = context.TblUsuarios.ToList();
+            */
 
             return View();
         }
 
+        [HttpPost]
+        public IActionResult Login(TblUsuario user) 
+        {
+            string numeroDoc = Request.Form["documento"].ToString();
+            string pass = Request.Form["clave"].ToString();
+            var usuarioLogin = context.TblUsuarios
+                .Where(consulta =>
+                consulta.NumeroDocumento == numeroDoc &&
+                consulta.Clave == pass).FirstOrDefault();
+
+            if (usuarioLogin != null)
+            {
+                //Administrador
+                if (usuarioLogin.Idrol == 1)
+                {
+                    ViewBag.mensaje = ("Administrador");
+                }
+                //Coordinador
+                else if (usuarioLogin.Idrol == 2)
+                {
+                    ViewBag.mensaje = ("Coordinador");
+                }
+                //Estudiante
+                else if (usuarioLogin.Idrol == 3)
+                {
+                    ViewBag.mensaje = ("Estudiante");
+                }
+                //Rol inexistente
+                else
+                {
+                    ViewBag.mensaje = ("Error al iniciar");
+                }
+            }
+            else
+            {
+                ViewBag.mensaje = ("Usuario o contraseña incorrectos");
+            }
+
+            return View();
+            
+        }
         public IActionResult OlvidarContrasena() 
         {
             return View();

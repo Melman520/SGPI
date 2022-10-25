@@ -1,8 +1,47 @@
-﻿
+﻿@model SGPI.Models.TblUsuario
 @{
     ViewData["Title"] = "Iniciar sesión";
     Layout = "_LayoutSGPI";
 }
+
+@if (ViewBag.mensaje == "Usuario o contraseña incorrectos")
+{
+    <script>
+        Toastify({
+            text: "Usuario o contraseña incorrectos",
+            duration: 3000,
+            destination: "",
+            newWindow: true,
+            close: true,
+            gravity: "top", // `top` or `bottom`
+            position: "center", // `left`, `center` or `right`
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+                background: "red"
+            },
+            onClick: function () { } // Callback after click
+        }).showToast();
+    </script>
+
+}else{
+    <script>
+        Toastify({
+            text: "@ViewBag.mensaje",
+            duration: 3000,
+            destination: "",
+            newWindow: true,
+            close: true,
+            gravity: "top", // `top` or `bottom`
+            position: "center", // `left`, `center` or `right`
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+                background: "green"
+            },
+            onClick: function () { } // Callback after click
+        }).showToast();
+    </script>
+}
+
 
 
 <div class="container" style="width:100%; padding-top:5%; padding-left:10%; padding-right:10%">
@@ -17,17 +56,17 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-user"></i></span>
                     </div>
-                    <input type="text" id="txtUsuario" class="form-control" placeholder="Usuario">
+                    <input type="text" id="txtDocumento" class="form-control" placeholder="Documento" name="documento">
                 </div>
 
                 <div class="input-group form-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-key"></i></span>
                     </div>
-                    <input type="password" id="txtContrasena" class="form-control" placeholder="Contraseña">
+                    <input name="clave" type="password" id="txtContrasena" class="form-control" placeholder="Contraseña">
                 </div>
                 <div class="input-group form-group justify-content-center">
-                    <input type="button" class="btn btn-success float-right login_btn w-25" value="Ingresar">
+                    <input type="submit" class="btn btn-success float-right login_btn w-25" value="Ingresar">
                 </div>
                 <div class="form-group">
                     <a href="/Administrador/OlvidarContrasena" id="recuperarPassword">¿Olvidaste la contraseña?</a>
@@ -38,3 +77,5 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
