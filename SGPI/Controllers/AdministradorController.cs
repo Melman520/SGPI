@@ -95,7 +95,7 @@ namespace SGPI.Controllers
             }
             else
             {
-                ViewBag.mensaje = ("Usuario o contraseña incorrectos");
+                ViewBag.mensaje = ("Error");
             }
 
             return View();
