@@ -7,7 +7,7 @@
 @if(ViewBag.mensaje != null){
 <script>
     color = "@ViewBag.mensaje" == "Error" ? "red" : "green"
-        mensaje = "@ViewBag.mensaje" == "Error" ? "Usuario o clave incorretos" : "Iniciando sesión como @ViewBag.mensaje"
+    mensaje = "@ViewBag.mensaje" == "Error" ? "Usuario o clave incorretos" : "Iniciando sesión como @ViewBag.mensaje"
     Toastify({
         text:  mensaje,
         duration: 3200,
@@ -38,14 +38,14 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-user"></i></span>
                     </div>
-                    <input type="text" id="txtDocumento" class="form-control" placeholder="Documento" name="documento">
+                    <input type="text" id="txtDocumento" class="form-control" placeholder="Documento" asp-for="NumeroDocumento">
                 </div>
 
                 <div class="input-group form-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-key"></i></span>
                     </div>
-                    <input name="clave" type="password" id="txtContrasena" class="form-control" placeholder="Contraseña">
+                    <input type="password" id="txtContrasena" class="form-control" placeholder="Contraseña" asp-for="Clave">
                 </div>
                 <div class="input-group form-group justify-content-center">
                     <input type="submit" class="btn btn-success float-right login_btn w-25" value="Ingresar">

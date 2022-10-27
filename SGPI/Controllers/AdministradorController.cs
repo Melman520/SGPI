@@ -63,8 +63,8 @@ namespace SGPI.Controllers
         [HttpPost]
         public IActionResult Login(TblUsuario user) 
         {
-            string numeroDoc = Request.Form["documento"].ToString();
-            string pass = Request.Form["clave"].ToString();
+            string numeroDoc = user.NumeroDocumento;
+            string pass = user.Clave;
             var usuarioLogin = context.TblUsuarios
                 .Where(consulta =>
                 consulta.NumeroDocumento == numeroDoc &&
@@ -75,7 +75,8 @@ namespace SGPI.Controllers
                 //Administrador
                 if (usuarioLogin.Idrol == 1)
                 {
-                    ViewBag.mensaje = ("Administrador");
+                    CrearUsuario();
+                    return View("CrearUsuario");
                 }
                 //Coordinador
                 else if (usuarioLogin.Idrol == 2)
@@ -108,6 +109,7 @@ namespace SGPI.Controllers
 
         public IActionResult CrearUsuario()
         {
+            ViewBag.genero = context.TblGeneros.ToList();
             return View();
         }
 
