@@ -109,7 +109,7 @@ namespace SGPI.Controllers
 
         public IActionResult CrearUsuario()
         {
-            ViewBag.genero = context.TblGeneros.ToList();
+            ViewBag.rol = context.TblRols.ToList();
             return View();
         }
 

@@ -1,5 +1,4 @@
-﻿@model SGPI.Models.TblRol
-@{
+﻿@{
     ViewData["Title"] = "Crear Usuario";
     Layout = "NavbarAdministradorLayout";
 }
@@ -64,7 +63,7 @@
                     </div>
                     <div class="col form-group">
                         @Html.DropDownList("Rol",
-                        new SelectList(ViewBag.genero),
+                        new SelectList(ViewBag.rol),
                         "Rol",
                         new { @class = "form-control" })
                         <select name="rol" class="form-control" required>
