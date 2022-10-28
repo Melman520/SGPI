@@ -16,7 +16,7 @@
         position: "center", // `left`, `center` or `right`
         stopOnFocus: true, // Prevents dismissing of toast on hover
         style: {
-            background: "red"
+                background: "linear-gradient(to right, rgb(255, 95, 109), rgb(255, 195, 113))"
         },
         onClick: function () { } // Callback after click
     }).showToast();
@@ -36,7 +36,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-user"></i></span>
                     </div>
-                    <input type="text" id="txtDocumento" class="form-control" placeholder="Documento" asp-for="NumeroDocumento">
+                    <input type="text" id="txtDocumento" class="form-control" placeholder="Documento" asp-for="NumeroDocumento" required>
                 </div>
 
                 <div class="input-group form-group">
@@ -46,7 +46,7 @@
                     <input type="password" id="txtContrasena" class="form-control" placeholder="Contraseña" asp-for="Clave">
                 </div>
                 <div class="input-group form-group justify-content-center">
-                    <input type="submit" class="btn btn-success float-right login_btn w-25" value="Ingresar">
+                    <input type="submit" class="btn btn-success float-right login_btn w-25" value="Ingresar" required>
                 </div>
                 <div class="form-group">
                     <a href="/Administrador/OlvidarContrasena" id="recuperarPassword">¿Olvidaste la contraseña?</a>

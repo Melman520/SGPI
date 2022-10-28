@@ -1,4 +1,4 @@
-﻿
+﻿@model SGPI.Models.TblUsuario
 @{
     ViewData["Title"] = "Reportes";
     Layout = "NavbarCoordinadorLayout";
@@ -18,13 +18,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa fa-address-card" aria-hidden="true"></i></span>
                         </div>
-                        <select class="form-control" name="select">
-                            <option value="null" selected>Tipo de documento</option>
-                            <option value="cedula">Cedula</option>
-                            <option value="identidad">Tarjeta de identidad</option>
-                            <option value="nit">NIT</option>
-                            <option value="pasaporte">Pasaporte</option>
-                        </select>
+                        @Html.DropDownList("Iddoc",new SelectList(ViewBag.documento, "Iddoc", "TipoDocumento"), new { @class = "form-control" })
                     </div>
                     <div class="col input-group form-group">
                         <div class="input-group-prepend">

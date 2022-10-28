@@ -75,19 +75,16 @@ namespace SGPI.Controllers
                 //Administrador
                 if (usuarioLogin.Idrol == 1)
                 {
-                    CrearUsuario();
                     return Redirect("Administrador/CrearUsuario");
                 }
                 //Coordinador
                 else if (usuarioLogin.Idrol == 2)
                 {
-                    ViewBag.mensaje = ("Coordinador");
                     return Redirect("Coordinador/Buscar");
                 }
                 //Estudiante
                 else if (usuarioLogin.Idrol == 3)
                 {
-                    ViewBag.mensaje = ("Estudiante");
                     return Redirect("Estudiante/ActualizarUsuario");
                 }
                 //Rol inexistente
@@ -122,8 +119,7 @@ namespace SGPI.Controllers
         public IActionResult CrearUsuario(TblUsuario usuario) {
             context.TblUsuarios.Add(usuario);
             context.SaveChanges();
-
-            ViewBag.mensaje = "Usuario Creado Exitosamente";
+            ViewBag.mensaje = "Usuario Creado";
 
             ViewBag.genero = context.TblGeneros.ToList();
             ViewBag.programa = context.TblProgramas.ToList();
