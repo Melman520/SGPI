@@ -76,17 +76,19 @@ namespace SGPI.Controllers
                 if (usuarioLogin.Idrol == 1)
                 {
                     CrearUsuario();
-                    return View("CrearUsuario");
+                    return Redirect("Administrador/CrearUsuario");
                 }
                 //Coordinador
                 else if (usuarioLogin.Idrol == 2)
                 {
                     ViewBag.mensaje = ("Coordinador");
+                    return Redirect("Coordinador/Buscar");
                 }
                 //Estudiante
                 else if (usuarioLogin.Idrol == 3)
                 {
                     ViewBag.mensaje = ("Estudiante");
+                    return Redirect("Estudiante/ActualizarPago");
                 }
                 //Rol inexistente
                 else
@@ -113,9 +115,41 @@ namespace SGPI.Controllers
             return View();
         }
 
+        [HttpPost]
+        public IActionResult CrearUsuario(TblUsuario usuario) {
+            context.TblUsuarios.Add(usuario);
+            context.SaveChanges();
+
+            ViewBag.mensaje = "Usuario Creado Exitosamente";
+
+            ViewBag.genero = context.TblGeneros.ToList();
+            ViewBag.programa = context.TblProgramas.ToList();
+            ViewBag.documento = context.TblDocumentos.ToList();
+            ViewBag.rol = context.TblRols.ToList();
+
+            return View();
+        }
+
+
         public IActionResult BuscarUsuario()
         {
-            return View();
+            TblUsuario us = new TblUsuario();
+            return View(us);
+        }
+        public IActionResult BuscarUsuario(TblUsuario usuario) {
+            String numeroDoc = usuario.NumeroDocumento;
+
+            var user = context.TblUsuarios.
+                Where(consulta => consulta.NumeroDocumento == numeroDoc).FirstOrDefault();
+
+            if (user != null)
+            {
+                return View(user);
+            }
+            else
+            {
+                return View();
+            }
         }
 
         public IActionResult EliminarUsuario()

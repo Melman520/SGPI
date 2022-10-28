@@ -9850,19 +9850,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Melman\\.nuget\\packages\\": {}
+    "C:\\Users\\Nelson\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Melman\\Desktop\\Git\\SGPI\\SGPI\\SGPI.csproj",
+      "projectUniqueName": "C:\\Users\\Nelson\\Desktop\\Git\\SGPI\\SGPI\\SGPI.csproj",
       "projectName": "SGPI",
-      "projectPath": "C:\\Users\\Melman\\Desktop\\Git\\SGPI\\SGPI\\SGPI.csproj",
-      "packagesPath": "C:\\Users\\Melman\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Melman\\Desktop\\Git\\SGPI\\SGPI\\obj\\",
+      "projectPath": "C:\\Users\\Nelson\\Desktop\\Git\\SGPI\\SGPI\\SGPI.csproj",
+      "packagesPath": "C:\\Users\\Nelson\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Nelson\\Desktop\\Git\\SGPI\\SGPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Melman\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Nelson\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

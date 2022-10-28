@@ -1,6 +1,11 @@
-﻿@{
+﻿@model SGPI.Models.TblUsuario
+@{
     ViewData["Title"] = "Crear Usuario";
     Layout = "NavbarAdministradorLayout";
+}
+
+@if (ViewBag.mensaje != null){
+    @ViewBag.mensaje
 }
 
 <div class="" style="width:100%; padding-top:5%; padding-left:10%; padding-right:10%">
@@ -18,7 +23,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa fa-address-card" aria-hidden="true"></i></span>
                         </div>
-                        <select class="form-control" name="select" required>
+                        <select class="form-control" asp-for="Idrol" required>
                             <option value="" selected disabled hidden>Tipo de documento</option>
                             <option value="cedula">Cedula</option>
                             <option value="identidad">Tarjeta de identidad</option>
@@ -30,13 +35,13 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa fa-hashtag"></i></span>
                         </div>
-                        <input type="text" id="txtDocumento" class="form-control w-25" placeholder="Número de documento" required>
+                        <input type="text" id="txtDocumento" class="form-control w-25" placeholder="Número de documento" required asp-for="NumeroDocumento">
                     </div>
                     <div class="col input-group form-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa fa-intersex" aria-hidden="true"></i></span>
                         </div>
-                        <select name="genero" class="form-control" required>
+                        <select name="genero" class="form-control" required asp-for="Idgenero">
                             <option value="" selected disabled hidden>Genero</option>
                             <option value="masculino">Masculino</option>
                             <option value="femenino">Femenino</option>
@@ -47,26 +52,23 @@
 
                 <div class="row">
                     <div class="col input-group form-group">
-                        <input type="text" id="txtNombre" class="form-control w-25" placeholder="Nombre" required>
+                        <input type="text" id="txtNombre" class="form-control w-25" placeholder="Nombre" required asp-for="PrimerNombre">
                     </div>
                     <div class="col input-group form-group">
-                        <input type="text" id="txtApellidoA" class="form-control w-25" placeholder="Primer apellido" required>
+                        <input type="text" id="txtApellidoA" class="form-control w-25" placeholder="Primer apellido" required asp-for="PrimerApellido">
                     </div>
                     <div class="col input-group form-group">
-                        <input type="text" id="txtApellidoB" class="form-control w-25" placeholder="Segundo apellido" required> 
+                        <input type="text" id="txtApellidoB" class="form-control w-25" placeholder="Segundo apellido" required asp-for="SegundoApellido">
                     </div>
                 </div>
 
                 <div class="row form-group">
                     <div class="col form-group">
-                        <div class="input-group"><input type="email" id="txtEmail" class="form-control w-25" placeholder="Correo Electronico" required> </div>
+                        <div class="input-group"><input type="email" id="txtEmail" class="form-control w-25" placeholder="Correo Electronico" required asp-for="Email"> </div>
                     </div>
                     <div class="col form-group">
-                        @Html.DropDownList("Rol",
-                        new SelectList(ViewBag.rol),
-                        "Rol",
-                        new { @class = "form-control" })
-                        <select name="rol" class="form-control" required>
+                        @Html.DropDownList("IdRol",new SelectList(ViewBag.rol, "IdRol", "TblRol1"), new { @class = "form-control" })
+                        <select class="form-control" required>
                             <option value="" selected disabled hidden>Rol</option>
                             <option value="admin">Administrador</option>
                             <option value="coordinador">Coordinador</option>
@@ -74,11 +76,11 @@
                         </select>
                     </div>
                     <div class="col">
-                        <select name="programa" class="form-control" required>
+                        <select class="form-control" required asp-for="Idprograma">
                             <option value="" selected disabled hidden>Programa</option>
-                            <option value="maestira">Maestría en gestión TI</option>
-                            <option value="especializacion">Especialización SI</option>
-                            <option value="medio ambiente">Maestria en medio ambiente</option>
+                            <option value="105966">Maestría en gestión TI</option>
+                            <option value="102735">Especialización SI</option>
+                            <option value="106409">Maestria en medio ambiente</option>
                         </select>
                     </div>
                 </div>
