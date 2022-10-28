@@ -88,7 +88,7 @@ namespace SGPI.Controllers
                 else if (usuarioLogin.Idrol == 3)
                 {
                     ViewBag.mensaje = ("Estudiante");
-                    return Redirect("Estudiante/ActualizarPago");
+                    return Redirect("Estudiante/ActualizarUsuario");
                 }
                 //Rol inexistente
                 else
@@ -136,9 +136,11 @@ namespace SGPI.Controllers
 
         public IActionResult BuscarUsuario()
         {
-            TblUsuario us = new TblUsuario();
-            return View(us);
+            ViewBag.encontrado = 2;
+            return View();
         }
+
+        [HttpPost]
         public IActionResult BuscarUsuario(TblUsuario usuario) {
             String numeroDoc = usuario.NumeroDocumento;
 
@@ -147,10 +149,12 @@ namespace SGPI.Controllers
 
             if (user != null)
             {
+                ViewBag.encontrado = 0;
                 return View(user);
             }
             else
             {
+                ViewBag.encontrado = 1;
                 return View();
             }
         }

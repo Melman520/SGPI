@@ -6,10 +6,8 @@
 
 @if(ViewBag.mensaje != null){
 <script>
-    color = "@ViewBag.mensaje" == "Error" ? "red" : "green"
-    mensaje = "@ViewBag.mensaje" == "Error" ? "Usuario o clave incorretos" : "Iniciando sesión como @ViewBag.mensaje"
     Toastify({
-        text:  mensaje,
+        text: "Usuario o clave incorretos",
         duration: 3200,
         destination: "",
         newWindow: true,
@@ -18,7 +16,7 @@
         position: "center", // `left`, `center` or `right`
         stopOnFocus: true, // Prevents dismissing of toast on hover
         style: {
-            background: color
+            background: "red"
         },
         onClick: function () { } // Callback after click
     }).showToast();

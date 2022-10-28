@@ -1,4 +1,4 @@
-﻿
+﻿@model SGPI.Models.TblUsuario
 @{
     ViewData["Title"] = "Actualizar Usuario";
     Layout = "NavbarEstudianteLayout";
@@ -19,13 +19,8 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa fa-address-card" aria-hidden="true"></i></span>
                         </div>
-                        <select class="form-control" name="select">
-                            <option value="null" selected>Tipo de documento</option>
-                            <option value="cedula">Cedula</option>
-                            <option value="identidad">Tarjeta de identidad</option>
-                            <option value="nit">NIT</option>
-                            <option value="pasaporte">Pasaporte</option>
-                        </select>
+                        @Html.DropDownList("Iddoc",new SelectList(ViewBag.documento, "Iddoc", "TipoDocumento"), new { @class = "form-control" })
+
                     </div>
                     <div class="col input-group form-group">
                         <div class="input-group-prepend">
@@ -37,12 +32,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa fa-intersex" aria-hidden="true"></i></span>
                         </div>
-                        <select name="genero" class="form-control">
-                            <option value="null" selected>Genero</option>
-                            <option value="masculino">Masculino</option>
-                            <option value="femenino">Femenino</option>
-                            <option value="otro">Otro</option>
-                        </select>
+                        @Html.DropDownList("Idgenero",new SelectList(ViewBag.genero, "Idgenero", "Genero"), new { @class = "form-control" })
                     </div>
                 </div>
 
@@ -67,12 +57,7 @@
                             <input type="button" id="txtAsignatura" class="form-control btn btn-secondary" value="Cargar">
                         </div>
                     <div class="col">
-                        <select name="programa" class="form-control">
-                            <option value="null" selected>Programa</option>
-                            <option value="maestira">Maestría en gestión TI</option>
-                            <option value="especializacion">Especialización SI</option>
-                            <option value="medio ambiente">Maestria en medio ambiente</option>
-                        </select>
+                        @Html.DropDownList("Idprograma",new SelectList(ViewBag.programa, "Idprograma", "Programa"), new { @class = "form-control" })
                     </div>
                 </div>
                 <div class="row">
@@ -82,9 +67,6 @@
                     </div>
                     <div class="col"></div>
                 </div>
-
-
-
             </form>
         </div>
     </div>
