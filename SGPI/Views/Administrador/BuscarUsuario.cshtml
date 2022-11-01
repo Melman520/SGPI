@@ -45,9 +45,8 @@
                         
                     </div>
 
-                    <button class="btn-success"> @Html.ActionLink("Editar Usuario", "EditarUsuario", new {Idusuario=Model.Idusuario}, new{style="text-decoration: none; color: white"})</button>
-                    <button class="btn-danger">
-                        @Html.ActionLink("Eliminar Usuario", "EliminarUsuario", new {Idusuario=Model.Idusuario},
+                    <button class="btn-success">@Html.ActionLink("Editar Usuario", "EditarUsuario", new {Idusuario=Model.Idusuario}, new{style="text-decoration: none; color: white"})</button>
+                    <button class="btn-danger">@Html.ActionLink("Eliminar Usuario", "EliminarUsuario", new {Idusuario=Model.Idusuario},
                     new {onClick="return confirm('¿Estas seguro de eliminarlo?');", style="text-decoration: none; color: white"})
                     </button>
                     
