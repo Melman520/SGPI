@@ -155,16 +155,52 @@ namespace SGPI.Controllers
             }
         }
 
+        public IActionResult EditarUsuario(int ? Idusuario)
+        {
+
+            
+            TblUsuario usuario = context.TblUsuarios.Find(Idusuario);
+            
+
+            if (usuario != null)
+            {
+                ViewBag.genero = context.TblGeneros.ToList();
+                ViewBag.programa = context.TblProgramas.ToList();
+                ViewBag.documento = context.TblDocumentos.ToList();
+                ViewBag.rol = context.TblRols.ToList();
+                return View(usuario);
+            }
+            else
+            {
+                return Redirect("/Administrador/BuscarUsuario");
+            }
+        }
+
+        [HttpPost]
+        public IActionResult EditarUsuario(TblUsuario usuario)
+        {
+            context.Update(usuario);
+            context.SaveChanges();
+            return Redirect("/Administrador/BuscarUsuario");
+        }
+
+        
+
+        [HttpPost]
+        public IActionResult EliminarUsuario(int ? Idusuario)
+        {
+            TblUsuario user = context.TblUsuarios.Find(Idusuario);
+            if (user != null) 
+            {
+                context.Remove(user);
+                context.SaveChanges();
+            }
+            return Redirect("/Administrador/BuscarUsuario");
+        }
         public IActionResult EliminarUsuario()
         {
             return View();
         }
-        
-        public IActionResult EditarUsuario()
-        {
-            return View();
-        }
-
         public IActionResult Reportes()
         {
             return View();

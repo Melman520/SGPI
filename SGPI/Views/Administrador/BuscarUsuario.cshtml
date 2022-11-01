@@ -22,7 +22,7 @@
                         <input type="submit" class="btn btn-outline-dark float-right btn-success" value="Buscar">
                     </div>
                 </div>
-            </form>
+           
                 @if (Model != null)
                 {
                     <div class="row font-weight-bold">
@@ -38,6 +38,9 @@
                         <div class="col border"> @Html.DisplayFor(modelitem=>modelitem.PrimerApellido)</div>
                         <div class="col border"> @Html.DisplayFor(modelitem=>modelitem.SegundoApellido)</div>
                         <div class="col border"> @Html.DisplayFor(modelitem=>modelitem.Email)</div>
+                        <div class="col border"> @Html.ActionLink("EditarUsuario", "EditarUsuario", new {Idusuario=Model.Idusuario})</div>
+                        <div class="col border"> @Html.ActionLink("EliminarUsuario", "EliminarUsuario", new {Idusuario=Model.Idusuario},
+                                                    new {onClick="return confirm('¿Estas seguro de eliminarlo?');"})</div>
                     </div>
                 }
                 @if (ViewBag.encontrado == 0)
@@ -77,8 +80,8 @@
                         }).showToast();
                     </script>
                 }
-            
+            </form>
         </div>
     </div>
-    
+     
 </div>

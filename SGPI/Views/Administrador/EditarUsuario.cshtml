@@ -1,4 +1,4 @@
-﻿
+﻿@model SGPI.Models.TblUsuario
 @{
     ViewData["Title"] = "Editar Usuario";
     Layout = "NavbarAdministradorLayout";
@@ -19,70 +19,50 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa fa-address-card" aria-hidden="true"></i></span>
                         </div>
-                        <select class="form-control" name="select">
-                            <option value="null" selected>Tipo de documento</option>
-                            <option value="cedula">Cedula</option>
-                            <option value="identidad">Tarjeta de identidad</option>
-                            <option value="nit">NIT</option>
-                            <option value="pasaporte">Pasaporte</option>
-                        </select>
+                        @Html.DropDownList("Iddoc",new SelectList(ViewBag.documento, "Iddoc", "TipoDocumento"), new { @class = "form-control" })
                     </div>
                     <div class="col input-group form-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa fa-hashtag"></i></span>
                         </div>
-                        <input type="text" id="txtDocumento" class="form-control w-25" placeholder="Número de documento">
+                        <input asp-for="NumeroDocumento" type="text" id="txtDocumento" class="form-control w-25" placeholder="Número de documento">
                     </div>
                     <div class="col input-group form-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa fa-intersex" aria-hidden="true"></i></span>
                         </div>
-                        <select name="genero" class="form-control">
-                            <option value="null" selected>Genero</option>
-                            <option value="masculino">Masculino</option>
-                            <option value="femenino">Femenino</option>
-                            <option value="otro">Otro</option>
-                        </select>
+                        @Html.DropDownList("Idgenero",new SelectList(ViewBag.genero, "Idgenero", "Genero"), new { @class = "form-control" })
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col input-group form-group">
-                        <input type="text" id="txtNombre" class="form-control w-25" placeholder="Nombre">
+                        <input asp-for="PrimerNombre" type="text" id="txtNombre" class="form-control w-25" placeholder="Primer Nombre">
+                        <input asp-for="SegundoNombre" type="text" id="txtNombre" class="form-control w-25" placeholder="Segundo Nombre">
                     </div>
                     <div class="col input-group form-group">
-                        <input type="text" id="txtApellidoA" class="form-control w-25" placeholder="Primer apellido">
+                        <input asp-for="PrimerApellido" type="text" id="txtApellidoA" class="form-control w-25" placeholder="Primer apellido">
                     </div>
                     <div class="col input-group form-group">
-                        <input type="text" id="txtApellidoB" class="form-control w-25" placeholder="Segundo apellido">
+                        <input asp-for="SegundoApellido" type="text" id="txtApellidoB" class="form-control w-25" placeholder="Segundo apellido">
                     </div>
                 </div>
 
                 <div class="row form-group">
                     <div class="col form-group">
-                        <div class="input-group"><input type="email" id="txtEmail" class="form-control w-25" placeholder="Correo Electronico"> </div>
+                        <div class="input-group"><input asp-for="Email" type="email" id="txtEmail" class="form-control w-25" placeholder="Correo Electronico"> </div>
                     </div>
                     <div class="col form-group">
-                        <select name="rol" class="form-control">
-                            <option value="null" selected>Rol</option>
-                            <option value="admin">Administrador</option>
-                            <option value="coordinador">Coordinador</option>
-                            <option value="estudiante">Estudiante</option>
-                        </select>
+                        @Html.DropDownList("Idrol",new SelectList(ViewBag.rol, "Idrol", "Rol"), new { @class = "form-control" })
                     </div>
                     <div class="col">
-                        <select name="programa" class="form-control">
-                            <option value="null" selected>Programa</option>
-                            <option value="maestira">Maestría en gestión TI</option>
-                            <option value="especializacion">Especialización SI</option>
-                            <option value="medio ambiente">Maestria en medio ambiente</option>
-                        </select>
+                        @Html.DropDownList("Idprograma",new SelectList(ViewBag.programa, "Idprograma", "Programa"), new { @class = "form-control" })
                     </div>
                 </div>
                 <div class="row">
                     <div class="col"></div>
                     <div class="col">
-                        <input type="button" value="Editar usuario" class="btn-success form-control" />
+                        <input type="submit" value="Editar usuario" class="btn-success form-control" />
                     </div>
                     <div class="col"></div>
                 </div>
