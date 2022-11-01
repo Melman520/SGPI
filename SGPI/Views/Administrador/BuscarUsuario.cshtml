@@ -5,7 +5,11 @@
 }
 
 
-
+<style type="text/css">
+    a:link, a:visited, a:active {
+        text-decoration: none;
+    }
+</style>
 <div class="" style="width:100%; padding-top:5%; padding-left:10%; padding-right:10%">
     
     <div class="card text-center mx-auto bg-light">
@@ -38,10 +42,15 @@
                         <div class="col border"> @Html.DisplayFor(modelitem=>modelitem.PrimerApellido)</div>
                         <div class="col border"> @Html.DisplayFor(modelitem=>modelitem.SegundoApellido)</div>
                         <div class="col border"> @Html.DisplayFor(modelitem=>modelitem.Email)</div>
-                        <div class="col border"> @Html.ActionLink("EditarUsuario", "EditarUsuario", new {Idusuario=Model.Idusuario})</div>
-                        <div class="col border"> @Html.ActionLink("EliminarUsuario", "EliminarUsuario", new {Idusuario=Model.Idusuario},
-                                                    new {onClick="return confirm('¿Estas seguro de eliminarlo?');"})</div>
+                        
                     </div>
+
+                    <button class="btn-success"> @Html.ActionLink("Editar Usuario", "EditarUsuario", new {Idusuario=Model.Idusuario}, new{style="text-decoration: none; color: white"})</button>
+                    <button class="btn-danger">
+                        @Html.ActionLink("Eliminar Usuario", "EliminarUsuario", new {Idusuario=Model.Idusuario},
+                    new {onClick="return confirm('¿Estas seguro de eliminarlo?');", style="text-decoration: none; color: white"})
+                    </button>
+                    
                 }
                 @if (ViewBag.encontrado == 0)
                 {

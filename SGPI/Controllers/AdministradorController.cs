@@ -186,7 +186,7 @@ namespace SGPI.Controllers
 
         
 
-        [HttpPost]
+        
         public IActionResult EliminarUsuario(int ? Idusuario)
         {
             TblUsuario user = context.TblUsuarios.Find(Idusuario);
@@ -197,6 +197,7 @@ namespace SGPI.Controllers
             }
             return Redirect("/Administrador/BuscarUsuario");
         }
+        [HttpPost]
         public IActionResult EliminarUsuario()
         {
             return View();

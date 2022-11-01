@@ -59,6 +59,15 @@
                         @Html.DropDownList("Idprograma",new SelectList(ViewBag.programa, "Idprograma", "Programa"), new { @class = "form-control" })
                     </div>
                 </div>
+
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col">
+                        <div class="input-group"><input asp-for="Clave" type="password" id="txtPassword" class="form-control w-25" placeholder="Clave" required> </div>
+                    </div>
+                    <div class="col"></div>
+                </div>
+                <div class="row">&nbsp; </div>
                 <div class="row">
                     <div class="col"></div>
                     <div class="col">
@@ -66,9 +75,6 @@
                     </div>
                     <div class="col"></div>
                 </div>
-
-
-
             </form>
         </div>
     </div>

@@ -140,4 +140,3 @@ insert into tblUsuario values (123,1,'Nelson', 'David', 'Alvarez', 'Rincon',1,'n
 
 /*Reiniciar identity de tblUsuario*/
 DBCC CHECKIDENT (tblUsuario, RESEED, 0)
-   
