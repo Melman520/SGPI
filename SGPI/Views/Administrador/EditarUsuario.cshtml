@@ -37,20 +37,20 @@
 
                 <div class="row">
                     <div class="col input-group form-group">
-                        <input asp-for="PrimerNombre" type="text" id="txtNombre" class="form-control w-25" placeholder="Primer Nombre">
+                        <input asp-for="PrimerNombre" type="text" id="txtNombre" class="form-control w-25" placeholder="Primer Nombre" required>
                         <input asp-for="SegundoNombre" type="text" id="txtNombre" class="form-control w-25" placeholder="Segundo Nombre">
                     </div>
                     <div class="col input-group form-group">
-                        <input asp-for="PrimerApellido" type="text" id="txtApellidoA" class="form-control w-25" placeholder="Primer apellido">
+                        <input asp-for="PrimerApellido" type="text" id="txtApellidoA" class="form-control w-25" placeholder="Primer apellido" required>
                     </div>
                     <div class="col input-group form-group">
-                        <input asp-for="SegundoApellido" type="text" id="txtApellidoB" class="form-control w-25" placeholder="Segundo apellido">
+                        <input asp-for="SegundoApellido" type="text" id="txtApellidoB" class="form-control w-25" placeholder="Segundo apellido" required>
                     </div>
                 </div>
 
                 <div class="row form-group">
                     <div class="col form-group">
-                        <div class="input-group"><input asp-for="Email" type="email" id="txtEmail" class="form-control w-25" placeholder="Correo Electronico"> </div>
+                        <div class="input-group"><input asp-for="Email" type="email" id="txtEmail" class="form-control w-25" placeholder="Correo Electronico" required> </div>
                     </div>
                     <div class="col form-group">
                         @Html.DropDownList("Idrol",new SelectList(ViewBag.rol, "Idrol", "Rol"), new { @class = "form-control" })
