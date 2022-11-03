@@ -31,12 +31,14 @@
                 {
                     <div class="row font-weight-bold">
                         <div class="col border ">@Html.DisplayNameFor(model=>model.NumeroDocumento)</div>
+                        <div class="col border ">@Html.DisplayNameFor(model=>model.PrimerNombre)</div>
                         <div class="col border">@Html.DisplayNameFor(model=>model.SegundoNombre)</div>
                         <div class="col border">@Html.DisplayNameFor(model=>model.PrimerApellido)</div>
                         <div class="col border">@Html.DisplayNameFor(model=>model.SegundoApellido)</div>
                         <div class="col border">@Html.DisplayNameFor(model=>model.Email)</div>
                     </div>
                     <div class="row justify">
+                        <div class="col border">@Html.DisplayFor(modelitem=>modelitem.NumeroDocumento)</div>
                         <div class="col border">@Html.DisplayFor(modelitem=>modelitem.PrimerNombre)</div>
                         <div class="col border"> @Html.DisplayFor(modelitem=>modelitem.SegundoNombre)</div>
                         <div class="col border"> @Html.DisplayFor(modelitem=>modelitem.PrimerApellido)</div>
