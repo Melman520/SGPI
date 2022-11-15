@@ -39,16 +39,16 @@
                 </div>
                 <div class="row border">
                     <div class="col border"> 
-                        <input asp-for="ValorPago" type="text" id="txtVPago" class="form-control" placeholder="Valor pago">
+                        <input asp-for="ValorPago" type="text" id="txtVPago" class="form-control" placeholder="Valor pago" required>
                     </div>
                     <div class="col border">
-                        <input asp-for="Fecha" type="date" id="txtAsignatura" class="form-control" placeholder="Fecha pago">
+                        <input asp-for="Fecha" type="date" id="txtAsignatura" class="form-control" placeholder="Fecha pago" required>
                     </div>
                     
                     <div class="col border">
                         <div class="input-group-prepend form-group">
                             <span class="col input-group-text"><i class="fa fa-upload"></i></span>
-                            <input type="button" id="txtAsignatura" class="form-control btn btn-secondary" value="Cargar">
+                            <input name="archivo" type="file" class="form-control btn btn-secondary" value="Cargar" required>
                         </div>
                     </div>
                 </div>

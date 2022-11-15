@@ -37,20 +37,35 @@ namespace SGPI.Controllers
             usuarioActualizar.Idprograma = usuario.Idprograma;
             usuarioActualizar.Email = usuario.Email;
 
+            ViewBag.idUsuario = usuarioActualizar.Idusuario;
+
             context.Update(usuarioActualizar);
             context.SaveChanges();
-            return Redirect("/Estudiante/ActualizarUsuario/?Idusuario=" + usuarioActualizar.Idusuario);
+            return Redirect("/Estudiante/Pago/?Idusuario=" + usuarioActualizar.Idusuario);
         }
         public IActionResult Pago()
         {
             return View();
         }
         [HttpPost]
-        public IActionResult Pago(TblPago pago) {
+        public IActionResult Pago(TblPago pago, TblEstudiante estudiante, int ? Idusuario) {
+
+            TblUsuario usuario = context.TblUsuarios.Find(Idusuario);
+
             pago.Estado = true;
             context.TblPagos.Add(pago);
             context.SaveChanges();
             ViewBag.mensaje = "Pago Registrado";
+
+            context.TblEstudiantes.Add(estudiante);
+            estudiante.Idpago = pago.Idpago;
+            estudiante.Idusuario = usuario.Idusuario;
+            estudiante.Archivo = Request.Form["Archivo"];
+            estudiante.Egresado = true;
+
+            context.TblEstudiantes.Add(estudiante);
+            context.SaveChanges();
+
             return View();
         }
     }

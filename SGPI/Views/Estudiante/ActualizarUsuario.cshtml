@@ -55,10 +55,7 @@
                     <div class="col form-group">
                         <div class="input-group"><input asp-for="Email" type="email" id="txtEmail" class="form-control w-25" placeholder="Correo Electronico"> </div>
                     </div>
-                    <div class="co col-4 input-group-prepend form-group">
-                            <span class="input-group-text"><i class="fa fa-upload"></i></span>
-                            <input type="button" class="form-control btn btn-secondary" value="Cargar">
-                        </div>
+                    
                     <div class="col">
                         @Html.DropDownList("Idprograma",new SelectList(ViewBag.programa, "Idprograma", "Programa"), new { @class = "form-control" })
                     </div>
@@ -66,7 +63,7 @@
                 <div class="row">
                     <div class="col"></div>
                     <div class="col">
-                        <input type="submit" value="Actualizar" class="btn-success form-control" />
+                        <input type="submit" value="Actualizar y Pagar" class="btn-success form-control" />
                     </div>
                     <div class="col"></div>
                 </div>
