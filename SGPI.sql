@@ -134,6 +134,3 @@ insert into tblRol values ('Estudiante')
 insert into tblUsuario values (1,1,'Mauricio', 'José', 'Amariles', 'Camacho',1,'mauricio.amariles@tdea.edu.co',1,'1',102735)
 insert into tblUsuario values (12,1,'Manuel', 'Alexander', 'Valbuena', 'Henao',1,'manuel.valbuena@tdea.edu.co',2,'12',102735)
 insert into tblUsuario values (123,1,'Nelson', 'David', 'Alvarez', 'Rincon',1,'nelson.alvarez@correo.tdea.edu.co',3,'123',102735)
-
-/*Reiniciar identity de tblUsuario*/
-DBCC CHECKIDENT (tblUsuario, RESEED, 0)
