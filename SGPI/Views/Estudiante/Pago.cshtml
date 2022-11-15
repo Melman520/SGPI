@@ -1,4 +1,4 @@
-﻿
+﻿@model SGPI.Models.TblPago
 @{
     ViewData["Title"] = "Programar asignatura";
     Layout = "NavbarEstudianteLayout";
@@ -13,28 +13,36 @@
 
         <div class="card-body">
             <form action="" method="post">
-                <
+                @if (ViewBag.mensaje != null)
+                {
+                    <script>
+                        Toastify({
+                            text: "Pago Registrado",
+                            duration: 3200,
+                            destination: "",
+                            newWindow: true,
+                            close: false,
+                            gravity: "top", // `top` or `bottom`
+                            position: "center", // `left`, `center` or `right`
+                            stopOnFocus: true, // Prevents dismissing of toast on hover
+                            style: {
+                                background: "linear-gradient(to right, #00b09b, #96c93d)"
+                            },
+                            onClick: function () { } // Callback after click
+                        }).showToast();
+                    </script>
+                }
                 <div class="row border font-weight-bold">
-                    <div class="col border">#</div>
                     <div class="col border">Valor Pago</div>
                     <div class="col border">Fecha de pago</div>
                     <div class="col border">Opciones</div>
                 </div>
                 <div class="row border">
-                    <div class="col border">1</div>
-                    <div class="col border">1.350.000</div>
-                    <div class="col border">15/07/2022</div>
-                    <div class="col border">Pago.pdf</div>
-                </div>
-                <div class="row border">
-                    <div class="col">
-                        <input type="number" id="txtNumber" class="form-control" placeholder="#">
-                    </div>
                     <div class="col border"> 
-                        <input type="text" id="txtVPago" class="form-control" placeholder="Valor pago">
+                        <input asp-for="ValorPago" type="text" id="txtVPago" class="form-control" placeholder="Valor pago">
                     </div>
                     <div class="col border">
-                        <input type="date" id="txtAsignatura" class="form-control" placeholder="Fecha pago">
+                        <input asp-for="Fecha" type="date" id="txtAsignatura" class="form-control" placeholder="Fecha pago">
                     </div>
                     
                     <div class="col border">
@@ -44,9 +52,13 @@
                         </div>
                     </div>
                 </div>
-                
-
-
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col">
+                        <input type="submit" value="Actualizar" class="btn-success form-control" />
+                    </div>
+                    <div class="col"></div>
+                </div>
             </form>
         </div>
     </div>

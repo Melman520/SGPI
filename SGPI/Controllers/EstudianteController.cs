@@ -6,7 +6,7 @@ namespace SGPI.Controllers
     public class EstudianteController : Controller
     {
         SGPIContext context = new SGPIContext();
-        
+
 
         public IActionResult ActualizarUsuario(int? Idusuario)
         {
@@ -16,7 +16,7 @@ namespace SGPI.Controllers
             ViewBag.rol = context.TblRols.ToList();
             var usuario = context.TblUsuarios.Find(Idusuario);
 
-            
+
             return View(usuario);
         }
 
@@ -41,11 +41,17 @@ namespace SGPI.Controllers
             context.SaveChanges();
             return Redirect("/Estudiante/ActualizarUsuario/?Idusuario=" + usuarioActualizar.Idusuario);
         }
-        public IActionResult Pago() 
+        public IActionResult Pago()
         {
             return View();
         }
-
-        
+        [HttpPost]
+        public IActionResult Pago(TblPago pago) {
+            pago.Estado = true;
+            context.TblPagos.Add(pago);
+            context.SaveChanges();
+            ViewBag.mensaje = "Pago Registrado";
+            return View();
+        }
     }
 }

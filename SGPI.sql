@@ -130,9 +130,6 @@ insert into tblRol values ('Administrador')
 insert into tblRol values ('Coordinador')
 insert into tblRol values ('Estudiante')
 
-insert into tblPrograma values (105966,'Maestría en Gestión de Tecnología de la Información')
-insert into tblPrograma values (102735,'Especialización en Seguridad de la Información')
-insert into tblPrograma values (106409,'Maestría en Gestión del Riesgo y Medio Ambiente')
 
 insert into tblUsuario values (1,1,'Mauricio', 'José', 'Amariles', 'Camacho',1,'mauricio.amariles@tdea.edu.co',1,'1',102735)
 insert into tblUsuario values (12,1,'Manuel', 'Alexander', 'Valbuena', 'Henao',1,'manuel.valbuena@tdea.edu.co',2,'12',102735)
