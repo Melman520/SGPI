@@ -85,7 +85,7 @@ namespace SGPI.Controllers
                 //Estudiante
                 else if (usuarioLogin.Idrol == 3)
                 {
-                    return Redirect("Estudiante/ActualizarUsuario");
+                    return Redirect("Estudiante/ActualizarUsuario/?Idusuario="+usuarioLogin.Idusuario);
                 }
                 //Rol inexistente
                 else
