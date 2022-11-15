@@ -61,7 +61,7 @@ namespace SGPI.Controllers
             estudiante.Idpago = pago.Idpago;
             estudiante.Idusuario = usuario.Idusuario;
             estudiante.Archivo = Request.Form["Archivo"];
-            estudiante.Egresado = true;
+            estudiante.Egresado = false;
 
             context.TblEstudiantes.Add(estudiante);
             context.SaveChanges();
